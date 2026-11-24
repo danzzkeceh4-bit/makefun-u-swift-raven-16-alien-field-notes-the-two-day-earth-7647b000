@@ -8,6 +8,10 @@ import os
 
 LINE = "Four stars. Lovely views, but the locals spend a third of their lives unconscious and the rest queuing for hot bean water. Would visit again \u2014 briefly."
 
+# The competition gate: UTF-8 text of 1-200 characters, not only whitespace.
+if not 1 <= len(LINE) <= 200 or not LINE.strip():
+    raise SystemExit("entry line must be 1-200 non-blank characters")
+
 def main():
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "output")
     os.makedirs(out_dir, exist_ok=True)
